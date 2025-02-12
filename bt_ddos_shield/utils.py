@@ -1,5 +1,4 @@
 import functools
-from typing import TypeAlias
 
 import bittensor
 import bittensor_wallet
@@ -9,9 +8,9 @@ from botocore.client import BaseClient
 from pydantic import BaseModel
 from route53.connection import Route53Connection
 
-Hotkey: TypeAlias = str
-PublicKey: TypeAlias = str
-PrivateKey: TypeAlias = str
+type Hotkey = str
+type PublicKey = str
+type PrivateKey = str
 
 
 class AWSClientFactory:
