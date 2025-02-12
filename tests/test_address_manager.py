@@ -3,13 +3,17 @@ from types import MappingProxyType
 
 import pytest
 from bt_ddos_shield.address import Address, AddressType
-from bt_ddos_shield.address_manager import AbstractAddressManager, AwsAddressManager, AwsObjectTypes, \
-    AwsShieldedServerData
+from bt_ddos_shield.address_manager import (
+    AbstractAddressManager,
+    AwsAddressManager,
+    AwsObjectTypes,
+    AwsShieldedServerData,
+)
 from bt_ddos_shield.event_processor import PrintingMinerShieldEventProcessor
 from bt_ddos_shield.state_manager import MinerShieldState
 from bt_ddos_shield.utils import AWSClientFactory, Hotkey
-from tests.test_state_manager import MemoryMinerShieldStateManager
 from tests.conftest import ShieldTestSettings
+from tests.test_state_manager import MemoryMinerShieldStateManager
 
 
 def get_miner_address_from_credentials(address_type: AddressType, port: int, miner_instance_id: str = '',

@@ -1,5 +1,5 @@
 import functools
-from typing import Optional, TypeAlias
+from typing import TypeAlias
 
 import bittensor
 import bittensor_wallet
@@ -17,9 +17,9 @@ PrivateKey: TypeAlias = str
 class AWSClientFactory:
     aws_access_key_id: str
     aws_secret_access_key: str
-    aws_region_name: Optional[str]
+    aws_region_name: str | None
 
-    def __init__(self, aws_access_key_id: str, aws_secret_access_key: str, aws_region_name: Optional[str] = None):
+    def __init__(self, aws_access_key_id: str, aws_secret_access_key: str, aws_region_name: str | None = None):
         """
         Args:
             aws_access_key_id: AWS access key ID.
@@ -46,9 +46,9 @@ class AWSClientFactory:
 
 
 class WalletSettings(BaseModel):
-    name: Optional[str] = None
-    hotkey: Optional[str] = None
-    path: Optional[str] = None
+    name: str | None = None
+    hotkey: str | None = None
+    path: str | None = None
 
     @functools.cached_property
     def instance(self) -> bittensor_wallet.Wallet:
@@ -56,7 +56,7 @@ class WalletSettings(BaseModel):
 
 
 class SubtensorSettings(BaseModel):
-    network: Optional[str] = None
+    network: str | None = None
 
     @functools.cached_property
     def client(self) -> bittensor.Subtensor:
