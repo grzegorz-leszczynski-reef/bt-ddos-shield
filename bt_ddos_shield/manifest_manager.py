@@ -8,9 +8,10 @@ from abc import ABC, abstractmethod
 from dataclasses import asdict, dataclass
 from http import HTTPStatus
 from types import MappingProxyType
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 import aiohttp
+from mypy_boto3_s3 import S3Client
 
 from bt_ddos_shield.address import (
     Address,
@@ -18,10 +19,6 @@ from bt_ddos_shield.address import (
 from bt_ddos_shield.encryption_manager import AbstractEncryptionManager
 from bt_ddos_shield.event_processor import AbstractMinerShieldEventProcessor
 from bt_ddos_shield.utils import AWSClientFactory, Hotkey, PrivateKey, PublicKey
-
-
-if TYPE_CHECKING:
-    from mypy_boto3_s3 import S3Client
 
 
 class ManifestManagerException(Exception):
