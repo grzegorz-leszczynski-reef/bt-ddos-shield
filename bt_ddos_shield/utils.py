@@ -16,7 +16,7 @@ type PrivateKey = str
 class AWSClientFactory:
     aws_access_key_id: str
     aws_secret_access_key: str
-    aws_region_name: str | None
+    aws_region_name: str
 
     def __init__(self, aws_access_key_id: str, aws_secret_access_key: str, aws_region_name: str | None = None):
         """
@@ -27,7 +27,7 @@ class AWSClientFactory:
         """
         self.aws_access_key_id = aws_access_key_id
         self.aws_secret_access_key = aws_secret_access_key
-        self.aws_region_name = aws_region_name
+        self.aws_region_name = aws_region_name or ''
 
     def set_aws_region_name(self, aws_region_name: str) -> bool:
         """Set AWS region name. Returns if region name was changed."""
