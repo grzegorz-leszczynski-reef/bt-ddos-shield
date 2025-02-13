@@ -1,7 +1,10 @@
+from __future__ import annotations
+
 from abc import ABC, abstractmethod
 from collections import defaultdict
 from datetime import datetime
 from types import MappingProxyType
+from typing import TYPE_CHECKING
 
 from sqlalchemy import (
     Column,
@@ -13,11 +16,14 @@ from sqlalchemy import (
     String,
     create_engine,
 )
-from sqlalchemy.engine import url
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
 from bt_ddos_shield.address import Address, AddressType
-from bt_ddos_shield.utils import Hotkey, PublicKey
+
+if TYPE_CHECKING:
+    from sqlalchemy.engine import url
+
+    from bt_ddos_shield.utils import Hotkey, PublicKey
 
 
 class MinerShieldState:

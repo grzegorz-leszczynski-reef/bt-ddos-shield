@@ -1,12 +1,17 @@
+from __future__ import annotations
+
 import functools
+from typing import TYPE_CHECKING
 
 import bittensor
-import bittensor_wallet
 import boto3
 import route53
-from botocore.client import BaseClient
 from pydantic import BaseModel
-from route53.connection import Route53Connection
+
+if TYPE_CHECKING:
+    import bittensor_wallet
+    from botocore.client import BaseClient
+    from route53.connection import Route53Connection
 
 type Hotkey = str
 type PublicKey = str
